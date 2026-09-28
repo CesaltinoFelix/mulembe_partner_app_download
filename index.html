@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>App do Parceiro Mulembe — Download</title>
 <meta name="description" content="Descarregue o app do Parceiro Mulembe para gerir as suas reservas, disponibilidade e experiências, diretamente no seu telemóvel Android." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231D1D1F'/%3E%3Cpath d='M32 14 L47 44 L32 38 L17 44 Z' fill='%23F5A623'/%3E%3C/svg%3E" />
+<link rel="icon" href="favicon.ico" sizes="any" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -31,128 +31,99 @@
     background: var(--surface-soft);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, .wordmark {
+  h1, h2, h3 {
     font-family: 'Unbounded', 'Inter', sans-serif;
     letter-spacing: -0.02em;
   }
   a { color: inherit; }
-  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 
-  /* Header */
+  /* Header — o mesmo logótipo (com texto embutido) da navbar do site principal,
+     não um ícone inventado. */
   header.site {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 20px 0;
+    padding: 18px 0;
   }
-  .wordmark {
-    display: flex; align-items: center; gap: 10px;
-    font-weight: 700; font-size: 20px; text-decoration: none; color: var(--ink);
-  }
-  .wordmark .mark {
-    width: 30px; height: 30px; border-radius: 9px; background: var(--ink);
-    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-  }
-  .wordmark .mark svg { width: 15px; height: 15px; }
+  header.site img.logo { height: 26px; width: auto; display: block; }
   header.site .tag {
     font-size: 13px; color: var(--ink-muted); font-weight: 500;
   }
 
-  /* Hero */
+  /* Hero — foto a toda a largura com o texto por cima, como no hero da homepage
+     (não duas colunas separadas: a foto É o fundo, não uma ilustração ao lado). */
   .hero {
-    padding: 40px 0 56px;
-    background:
-      radial-gradient(ellipse 70% 50% at 50% -10%, rgba(245,166,35,0.14) 0%, transparent 60%),
-      linear-gradient(180deg, #FFFBF5 0%, var(--surface-soft) 100%);
-    border-radius: 0 0 32px 32px;
-  }
-  .hero-inner {
-    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 44px; align-items: center;
+    padding-top: 8px;
   }
   .hero-photo {
     position: relative; border-radius: 28px; overflow: hidden;
-    aspect-ratio: 4 / 3; background: #171412; min-width: 0;
-    box-shadow: 0 24px 60px -20px rgba(29,29,31,0.35);
+    min-height: 460px; background: #171412;
+    box-shadow: 0 24px 60px -24px rgba(29,29,31,0.45);
   }
   .hero-photo img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block;
   }
   .hero-photo .scrim {
     position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(20,15,5,0.55) 100%);
+    background: linear-gradient(180deg, rgba(10,8,4,0.55) 0%, rgba(10,8,4,0.15) 38%, rgba(10,8,4,0.75) 100%);
   }
-  .hero-photo .badge {
-    position: absolute; left: 18px; bottom: 18px;
-    display: flex; align-items: center; gap: 8px;
-    background: rgba(255,255,255,0.92); backdrop-filter: blur(6px);
-    padding: 8px 14px; border-radius: 999px;
-    font-size: 12.5px; font-weight: 700; color: var(--ink);
-  }
-  .hero-photo .badge .dot-live {
-    width: 7px; height: 7px; border-radius: 50%; background: #22c55e;
-  }
-  @media (max-width: 860px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 26px; }
-    .hero-photo { order: -1; aspect-ratio: 16 / 9; }
+  .hero-content {
+    position: relative; padding: 44px 32px 36px; color: #fff;
+    display: flex; flex-direction: column; justify-content: flex-end; min-height: 460px;
   }
   .eyebrow {
-    display: inline-flex; align-items: center; gap: 6px;
-    background: rgba(245,166,35,0.14); color: var(--gold-deep);
+    display: inline-flex; align-items: center; gap: 6px; align-self: flex-start;
+    background: rgba(255,255,255,0.14); color: #fff; backdrop-filter: blur(6px);
     font-size: 12.5px; font-weight: 600; padding: 6px 14px; border-radius: 999px;
-    margin-bottom: 18px;
+    margin-bottom: 18px; border: 1px solid rgba(255,255,255,0.22);
   }
   .hero h1 {
-    font-size: clamp(28px, 5vw, 44px);
+    font-size: clamp(28px, 4.4vw, 46px);
     line-height: 1.08;
     margin: 0 0 14px;
-    max-width: 640px;
+    max-width: 680px;
+    color: #fff;
   }
   .hero p.lead {
-    font-size: 17px; color: var(--ink-muted); line-height: 1.55;
-    max-width: 560px; margin: 0 0 30px;
+    font-size: 16.5px; color: rgba(255,255,255,0.82); line-height: 1.55;
+    max-width: 520px; margin: 0 0 28px;
   }
 
   .cta-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
   .btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-    padding: 15px 26px; border-radius: 14px; font-weight: 700; font-size: 15.5px;
+    padding: 15px 26px; border-radius: 999px; font-weight: 700; font-size: 15px;
     text-decoration: none; border: none; cursor: pointer; transition: all .15s ease;
     font-family: inherit;
   }
+  /* Preto sólido é a cor de ação primária do site (ex. "Explorar Destinos") —
+     o âmbar é só destaque pontual, não a cor de todos os botões. */
   .btn-primary {
-    background: var(--gold); color: #1a1200; box-shadow: 0 10px 30px -8px rgba(224,149,15,0.55);
+    background: #fff; color: var(--ink); box-shadow: 0 10px 28px -10px rgba(0,0,0,0.45);
   }
-  .btn-primary:hover { background: var(--gold-hover); transform: translateY(-1px); }
+  .btn-primary:hover { background: #f2f2f2; transform: translateY(-1px); }
   .btn-primary[disabled] {
-    background: #E8E8ED; color: var(--ink-soft); box-shadow: none; cursor: not-allowed; transform: none;
+    background: rgba(255,255,255,0.35); color: rgba(29,29,31,0.6); box-shadow: none; cursor: not-allowed; transform: none;
   }
   .btn-ghost {
-    background: #fff; color: var(--ink); border: 1px solid var(--line);
+    background: transparent; color: #fff; border: 1px solid rgba(255,255,255,0.4);
   }
-  .btn-ghost:hover { background: var(--surface); }
+  .btn-ghost:hover { background: rgba(255,255,255,0.1); }
   .btn svg { flex-shrink: 0; }
 
   .release-meta {
-    margin-top: 14px; font-size: 13px; color: var(--ink-soft);
+    margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.65);
     display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   }
-  .release-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: var(--line); }
-  .status-pill {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 12.5px; font-weight: 600; color: var(--ink-muted);
-  }
-  .status-pill .spinner {
-    width: 12px; height: 12px; border-radius: 50%;
-    border: 2px solid var(--line); border-top-color: var(--gold);
-    animation: spin 0.8s linear infinite;
-  }
-  @keyframes spin { to { transform: rotate(360deg); } }
+  .release-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.4); }
 
   /* Not-yet-available notice */
   .notice {
     margin-top: 18px; padding: 14px 16px; border-radius: 14px;
-    background: #FFF8EC; border: 1px solid #F5DDAF; color: #8A5A00;
+    background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.2); color: #fff;
     font-size: 13.5px; line-height: 1.5; max-width: 560px; display: none;
+    backdrop-filter: blur(6px);
   }
-  .notice a { font-weight: 600; text-decoration: underline; }
+  .notice a { font-weight: 600; text-decoration: underline; color: #fff; }
 
   /* Sections */
   section { padding: 56px 0; }
@@ -172,9 +143,9 @@
     padding: 22px;
   }
   .step .num {
-    width: 30px; height: 30px; border-radius: 9px; background: var(--surface);
+    width: 30px; height: 30px; border-radius: 9px; background: var(--ink); color: #fff;
     display: flex; align-items: center; justify-content: center;
-    font-weight: 700; font-size: 13.5px; color: var(--ink); margin-bottom: 14px;
+    font-weight: 700; font-size: 13.5px; margin-bottom: 14px;
   }
   .step h3 { font-size: 15.5px; margin: 0 0 6px; }
   .step p { font-size: 13.5px; color: var(--ink-muted); line-height: 1.5; margin: 0; }
@@ -201,8 +172,8 @@
   }
   .support h2 { color: #fff; }
   .support p { color: rgba(255,255,255,0.65); font-size: 14.5px; max-width: 440px; margin: 8px auto 22px; }
-  .support .btn-ghost { background: rgba(255,255,255,0.08); color: #fff; border-color: rgba(255,255,255,0.16); }
-  .support .btn-ghost:hover { background: rgba(255,255,255,0.14); }
+  .support .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.3); }
+  .support .btn-ghost:hover { background: rgba(255,255,255,0.1); }
 
   footer.site {
     padding: 30px 0 50px; text-align: center;
@@ -213,6 +184,8 @@
   @media (max-width: 720px) {
     .steps, .features { grid-template-columns: 1fr; }
     .support { padding: 30px 20px; border-radius: 22px; }
+    .hero-photo, .hero-content { min-height: 520px; }
+    .hero-content { padding: 32px 20px 28px; }
   }
 </style>
 </head>
@@ -220,51 +193,42 @@
 
 <div class="wrap">
   <header class="site">
-    <a href="https://mulembe.ao" class="wordmark">
-      <span class="mark">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M12 3 L20 19 L12 15.5 L4 19 Z" fill="#F5A623"/></svg>
-      </span>
-      Mulembe
+    <a href="https://mulembe.ao">
+      <img class="logo" src="logo-mulembe.png" alt="Mulembe" />
     </a>
     <span class="tag">App do Parceiro</span>
   </header>
 </div>
 
-<div class="hero">
-  <div class="wrap">
-    <div class="hero-inner">
-      <div>
-        <span class="eyebrow">📱 Ainda não está nas lojas de aplicações</span>
-        <h1>Instale o app do Parceiro Mulembe diretamente no seu telemóvel</h1>
-        <p class="lead">Giro de reservas, disponibilidade, avaliações e muito mais — tudo no seu bolso. Enquanto o app não chega à Play Store, instale-o aqui, sem precisar de ninguém lhe enviar o ficheiro outra vez.</p>
+<div class="wrap hero">
+  <div class="hero-photo">
+    <img src="hero.jpg" alt="Destino turístico em Angola, na plataforma Mulembe" />
+    <div class="scrim"></div>
+    <div class="hero-content">
+      <span class="eyebrow">📱 Ainda não está nas lojas de aplicações</span>
+      <h1>Instale o app do Parceiro Mulembe diretamente no seu telemóvel</h1>
+      <p class="lead">Giro de reservas, disponibilidade, avaliações e muito mais — tudo no seu bolso. Enquanto o app não chega à Play Store, instale-o aqui, sem precisar de ninguém lhe enviar o ficheiro outra vez.</p>
 
-        <div class="cta-row">
-          <a id="downloadBtn" class="btn btn-primary" href="#" rel="noopener">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
-            <span id="downloadLabel">A verificar a última versão…</span>
-          </a>
-          <a class="btn btn-ghost" href="https://wa.me/244955112309?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20o%20app%20do%20parceiro%20Mulembe." target="_blank" rel="noopener">
-            Falar no WhatsApp
-          </a>
-        </div>
-
-        <div id="releaseMeta" class="release-meta" style="display:none">
-          <span id="releaseVersion"></span>
-          <span class="dot"></span>
-          <span id="releaseSize"></span>
-          <span class="dot"></span>
-          <span id="releaseDate"></span>
-        </div>
-
-        <div id="notAvailable" class="notice">
-          O ficheiro ainda não foi publicado nesta página. Contacte a equipa Mulembe pelo WhatsApp acima para o receber enquanto isso, ou volte a tentar mais tarde.
-        </div>
+      <div class="cta-row">
+        <a id="downloadBtn" class="btn btn-primary" href="#" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+          <span id="downloadLabel">A verificar a última versão…</span>
+        </a>
+        <a class="btn btn-ghost" href="https://wa.me/244955112309?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20o%20app%20do%20parceiro%20Mulembe." target="_blank" rel="noopener">
+          Falar no WhatsApp
+        </a>
       </div>
 
-      <div class="hero-photo">
-        <img src="hero.jpg" alt="Destino turístico em Angola, na plataforma Mulembe" width="1200" height="550" />
-        <div class="scrim"></div>
-        <span class="badge"><span class="dot-live"></span> Mulembe</span>
+      <div id="releaseMeta" class="release-meta" style="display:none">
+        <span id="releaseVersion"></span>
+        <span class="dot"></span>
+        <span id="releaseSize"></span>
+        <span class="dot"></span>
+        <span id="releaseDate"></span>
+      </div>
+
+      <div id="notAvailable" class="notice">
+        O ficheiro ainda não foi publicado nesta página. Contacte a equipa Mulembe pelo WhatsApp acima para o receber enquanto isso, ou volte a tentar mais tarde.
       </div>
     </div>
   </div>
@@ -340,7 +304,7 @@
     <div class="support">
       <h2>Precisa de ajuda?</h2>
       <p>Se tiver dúvidas sobre a instalação ou sobre o uso do app, a equipa Mulembe responde diretamente no WhatsApp.</p>
-      <a class="btn btn-ghost" href="https://wa.me/244955112309" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.3)" href="https://wa.me/244955112309" target="_blank" rel="noopener">Falar no WhatsApp</a>
     </div>
   </section>
 </div>
