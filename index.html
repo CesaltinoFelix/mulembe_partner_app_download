@@ -58,11 +58,40 @@
 
   /* Hero */
   .hero {
-    padding: 56px 0 40px;
+    padding: 40px 0 56px;
     background:
       radial-gradient(ellipse 70% 50% at 50% -10%, rgba(245,166,35,0.14) 0%, transparent 60%),
       linear-gradient(180deg, #FFFBF5 0%, var(--surface-soft) 100%);
     border-radius: 0 0 32px 32px;
+  }
+  .hero-inner {
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 44px; align-items: center;
+  }
+  .hero-photo {
+    position: relative; border-radius: 28px; overflow: hidden;
+    aspect-ratio: 4 / 3; background: #171412; min-width: 0;
+    box-shadow: 0 24px 60px -20px rgba(29,29,31,0.35);
+  }
+  .hero-photo img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+  }
+  .hero-photo .scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0) 45%, rgba(20,15,5,0.55) 100%);
+  }
+  .hero-photo .badge {
+    position: absolute; left: 18px; bottom: 18px;
+    display: flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,0.92); backdrop-filter: blur(6px);
+    padding: 8px 14px; border-radius: 999px;
+    font-size: 12.5px; font-weight: 700; color: var(--ink);
+  }
+  .hero-photo .badge .dot-live {
+    width: 7px; height: 7px; border-radius: 50%; background: #22c55e;
+  }
+  @media (max-width: 860px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 26px; }
+    .hero-photo { order: -1; aspect-ratio: 16 / 9; }
   }
   .eyebrow {
     display: inline-flex; align-items: center; gap: 6px;
@@ -203,30 +232,40 @@
 
 <div class="hero">
   <div class="wrap">
-    <span class="eyebrow">📱 Ainda não está nas lojas de aplicações</span>
-    <h1>Instale o app do Parceiro Mulembe diretamente no seu telemóvel</h1>
-    <p class="lead">Giro de reservas, disponibilidade, avaliações e muito mais — tudo no seu bolso. Enquanto o app não chega à Play Store, instale-o aqui, sem precisar de ninguém lhe enviar o ficheiro outra vez.</p>
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">📱 Ainda não está nas lojas de aplicações</span>
+        <h1>Instale o app do Parceiro Mulembe diretamente no seu telemóvel</h1>
+        <p class="lead">Giro de reservas, disponibilidade, avaliações e muito mais — tudo no seu bolso. Enquanto o app não chega à Play Store, instale-o aqui, sem precisar de ninguém lhe enviar o ficheiro outra vez.</p>
 
-    <div class="cta-row">
-      <a id="downloadBtn" class="btn btn-primary" href="#" rel="noopener">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
-        <span id="downloadLabel">A verificar a última versão…</span>
-      </a>
-      <a class="btn btn-ghost" href="https://wa.me/244955112309?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20o%20app%20do%20parceiro%20Mulembe." target="_blank" rel="noopener">
-        Falar no WhatsApp
-      </a>
-    </div>
+        <div class="cta-row">
+          <a id="downloadBtn" class="btn btn-primary" href="#" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M5 21h14"/></svg>
+            <span id="downloadLabel">A verificar a última versão…</span>
+          </a>
+          <a class="btn btn-ghost" href="https://wa.me/244955112309?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20o%20app%20do%20parceiro%20Mulembe." target="_blank" rel="noopener">
+            Falar no WhatsApp
+          </a>
+        </div>
 
-    <div id="releaseMeta" class="release-meta" style="display:none">
-      <span id="releaseVersion"></span>
-      <span class="dot"></span>
-      <span id="releaseSize"></span>
-      <span class="dot"></span>
-      <span id="releaseDate"></span>
-    </div>
+        <div id="releaseMeta" class="release-meta" style="display:none">
+          <span id="releaseVersion"></span>
+          <span class="dot"></span>
+          <span id="releaseSize"></span>
+          <span class="dot"></span>
+          <span id="releaseDate"></span>
+        </div>
 
-    <div id="notAvailable" class="notice">
-      O ficheiro ainda não foi publicado nesta página. Contacte a equipa Mulembe pelo WhatsApp acima para o receber enquanto isso, ou volte a tentar mais tarde.
+        <div id="notAvailable" class="notice">
+          O ficheiro ainda não foi publicado nesta página. Contacte a equipa Mulembe pelo WhatsApp acima para o receber enquanto isso, ou volte a tentar mais tarde.
+        </div>
+      </div>
+
+      <div class="hero-photo">
+        <img src="hero.jpg" alt="Destino turístico em Angola, na plataforma Mulembe" width="1200" height="550" />
+        <div class="scrim"></div>
+        <span class="badge"><span class="dot-live"></span> Mulembe</span>
+      </div>
     </div>
   </div>
 </div>
