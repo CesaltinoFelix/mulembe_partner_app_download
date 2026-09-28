@@ -38,6 +38,16 @@
   a { color: inherit; }
   .wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
 
+  /* Não estava definido em lado nenhum — o contorno por omissão do browser
+     continuava a aparecer, mas sem seguir a marca nem garantir contraste
+     sobre o hero escuro. */
+  :focus-visible {
+    outline: 2px solid var(--gold); outline-offset: 2px; border-radius: 4px;
+  }
+  .hero :focus-visible, .support :focus-visible {
+    outline-color: #fff;
+  }
+
   /* Header — o mesmo logótipo (com texto embutido) da navbar do site principal,
      não um ícone inventado. */
   header.site {
@@ -71,7 +81,7 @@
     display: flex; flex-direction: column; justify-content: flex-end; min-height: 460px;
   }
   .fine-print {
-    margin: 14px 0 0; font-size: 12.5px; color: rgba(255,255,255,0.55);
+    margin: 14px 0 0; font-size: 12.5px; color: rgba(255,255,255,0.72);
   }
   .hero h1 {
     font-size: clamp(28px, 4.4vw, 46px);
@@ -108,7 +118,7 @@
   .btn svg { flex-shrink: 0; }
 
   .release-meta {
-    margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.65);
+    margin-top: 16px; font-size: 13px; color: rgba(255,255,255,0.78);
     display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
   }
   .release-meta .dot { width: 4px; height: 4px; border-radius: 50%; background: rgba(255,255,255,0.4); }
@@ -145,7 +155,7 @@
     font-weight: 700; font-size: 13.5px; margin-bottom: 14px;
   }
   .step h3 { font-size: 15.5px; margin: 0 0 6px; }
-  .step p { font-size: 13.5px; color: var(--ink-muted); line-height: 1.5; margin: 0; }
+  .step p { font-size: 14px; color: var(--ink-muted); line-height: 1.5; margin: 0; }
 
   /* Features */
   .features {
@@ -160,7 +170,7 @@
     background: rgba(245,166,35,0.14); display: flex; align-items: center; justify-content: center;
   }
   .feature h3 { font-size: 14.5px; margin: 0 0 3px; }
-  .feature p { font-size: 13px; color: var(--ink-muted); margin: 0; line-height: 1.45; }
+  .feature p { font-size: 14px; color: var(--ink-muted); margin: 0; line-height: 1.45; }
 
   /* Support */
   /* Mesmo tratamento do banner "Pronto para a aventura" da homepage: foto de
@@ -183,7 +193,9 @@
 
   footer.site {
     padding: 30px 0 50px; text-align: center;
-    font-size: 12.5px; color: var(--ink-soft);
+    /* --ink-soft dava ~4:1 sobre este fundo, abaixo do mínimo AA (4.5:1)
+       para texto pequeno — --ink-muted passa com folga (~5.3:1). */
+    font-size: 13px; color: var(--ink-muted);
   }
   footer.site a { text-decoration: underline; }
 
@@ -254,7 +266,7 @@
       <div class="step">
         <div class="num">2</div>
         <h3>Permita a instalação</h3>
-        <p>Autorize "fontes desconhecidas" quando o Android pedir.</p>
+        <p>O Android vai pedir para autorizar esta fonte. Aceite.</p>
       </div>
       <div class="step">
         <div class="num">3</div>
