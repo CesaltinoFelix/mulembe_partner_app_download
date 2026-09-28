@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>App do Parceiro Mulembe — Download</title>
+<title>Download do App do Parceiro Mulembe</title>
 <meta name="description" content="Descarregue o app do Parceiro Mulembe para gerir as suas reservas, disponibilidade e experiências, diretamente no seu telemóvel Android." />
 <link rel="icon" href="favicon.ico" sizes="any" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -163,14 +163,23 @@
   .feature p { font-size: 13px; color: var(--ink-muted); margin: 0; line-height: 1.45; }
 
   /* Support */
+  /* Mesmo tratamento do banner "Pronto para a aventura" da homepage: foto de
+     fundo esmaecida + gradiente + brilho âmbar, não preto liso. */
   .support {
-    background: var(--ink); color: #fff; border-radius: 28px;
-    padding: 40px; text-align: center;
+    position: relative; overflow: hidden;
+    background: #0a0a0a; color: #fff; border-radius: 28px;
+    padding: 48px 40px; text-align: center;
   }
+  .support .bg { position: absolute; inset: 0; }
+  .support .bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.4; }
+  .support .bg .tint { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 55%, rgba(10,10,10,0.5) 100%); }
+  .support .glow-a { position: absolute; right: -80px; top: -80px; width: 260px; height: 260px; border-radius: 50%; background: rgba(245,158,11,0.16); filter: blur(60px); }
+  .support .glow-b { position: absolute; left: -80px; bottom: -80px; width: 260px; height: 260px; border-radius: 50%; background: rgba(217,119,6,0.12); filter: blur(60px); }
+  .support > * { position: relative; }
   .support h2 { color: #fff; }
-  .support p { color: rgba(255,255,255,0.65); font-size: 14.5px; max-width: 440px; margin: 8px auto 22px; }
-  .support .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.3); }
-  .support .btn-ghost:hover { background: rgba(255,255,255,0.1); }
+  .support p { color: rgba(255,255,255,0.72); font-size: 14.5px; max-width: 440px; margin: 8px auto 22px; }
+  .support .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.08); }
+  .support .btn-ghost:hover { background: rgba(255,255,255,0.15); }
 
   footer.site {
     padding: 30px 0 50px; text-align: center;
@@ -223,7 +232,7 @@
         <span id="releaseDate"></span>
       </div>
 
-      <p class="fine-print">Ainda não está nas lojas de aplicações — instale o ficheiro diretamente.</p>
+      <p class="fine-print">Ainda não está nas lojas de aplicações. Instale o ficheiro diretamente.</p>
 
       <div id="notAvailable" class="notice">
         Ficheiro ainda não publicado. Peça-o no WhatsApp acima.
@@ -235,7 +244,7 @@
 <div class="wrap">
   <section id="instalar">
     <h2>Como instalar</h2>
-    <p class="section-lead">O Android pede uma autorização extra na primeira vez — é normal.</p>
+    <p class="section-lead">O Android pede uma autorização extra na primeira vez. É normal.</p>
     <div class="steps">
       <div class="step">
         <div class="num">1</div>
@@ -299,16 +308,19 @@
 
   <section>
     <div class="support">
+      <div class="bg"><img src="support-bg.jpg" alt="" aria-hidden="true" /><div class="tint"></div></div>
+      <div class="glow-a" aria-hidden="true"></div>
+      <div class="glow-b" aria-hidden="true"></div>
       <h2>Precisa de ajuda?</h2>
       <p>A equipa Mulembe responde diretamente no WhatsApp.</p>
-      <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.3)" href="https://wa.me/244955112309" target="_blank" rel="noopener">Falar no WhatsApp</a>
+      <a class="btn btn-ghost" href="https://wa.me/244955112309" target="_blank" rel="noopener">Falar no WhatsApp</a>
     </div>
   </section>
 </div>
 
 <footer class="site">
   <div class="wrap">
-    Mulembe — plataforma de turismo de Angola. &nbsp;·&nbsp;
+    Mulembe, plataforma de turismo de Angola. &nbsp;·&nbsp;
     <a href="https://mulembe.ao">mulembe.ao</a>
   </div>
 </footer>
